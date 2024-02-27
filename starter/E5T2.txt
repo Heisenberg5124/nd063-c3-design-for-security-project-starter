@@ -1,13 +1,25 @@
 # Identify tools that will allow you to do the following:
 
 ## Scan infrastructure as code templates
+  - Terrascan
 
 ### Example vulnerability
+  - Non-SSL/TLS 
+  - Proper configuration
+  - Proper permissions 
 
 ##Scan AMI’s or containers for OS vulnerabilities
+  - AquaSec
+  - Qualys Virtual Scanner
+  - Clair
 
 ### Example vulnerability
+  - CVE vulnerabilities
+  - OWASP Top 10 vulnerabilities 
 
 ##Scan an AWS environment for cloud configuration vulnerabilities
+  - AWS SecurityHub
 
 ### Example vulnerability
+  - S3 buckets with public write or read permissions
+  - Password policies not met

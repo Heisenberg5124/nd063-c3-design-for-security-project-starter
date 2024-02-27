@@ -1,5 +1,11 @@
 Based on the architecture diagram, and the steps you have taken so far to upload data and access the application web service, identify at least 2 obvious poor practices as it relates to security.  Include justification.
 
 # Poor practice 1
+Problem: All traffic on all ports from all ports is permitted under both public and private subnet network ACL rules.
+
+Solution: In order to limit the amount of traffic that may be delivered to and from the subnet, network ACL rules should be employed to minimize the available network access. This will lessen the possibility that an attacker could carry out harmful acts against the infrastructure.
 
 # Poor practice 2
+Problem: The way instance role policy is currently configured, the application server can access any S3 bucket.
+
+Solution: The particular bucket (Free Recipe) that should be available from the application server should be specified in the policy.

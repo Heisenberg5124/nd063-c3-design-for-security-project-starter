@@ -2,4 +2,16 @@
 
 # Identify 2-3 changes that can be made to our environment to prevent an ssh brute force attack from the internet.
 
+  - Problem: Application server is using public-private key based authentication process.
+    Solution: Make use of AWS Systems Manager's Session Manager service to access the application server.
+  - Problem: Currently security group is designed in such a way that anyone can attempt to login to application server on port 22.
+    Solution: Restrict the IPs that are allowed to communicate to application server by providing CIDR block or exact IP address.
+
 # Neither instance should have had access to the secret recipes bucket, in the even that instance API credentials were compromised how could we have prevented access to sensitive data.
+
+  - Use least privileged access model:
+    The application server can access any S3 bucket due to the present configuration of the instance role policy. Rather of doing this, the policy should define which specific bucket (Free Recipe) is accessible from the application server.
+  - Restricting actions in the policy:
+    At the moment, all S3 bucket activities (such as delete and update) are permitted for the role, as configured by the instance role policy. According to the use case, reading the recipe from the bucket just requires read permissions. Actions should so be restricted to what is absolutely necessary.
+  - Advance protection methods:
+    Enable server side encryption in the S3 bucket.
